@@ -330,7 +330,11 @@ Be constructive, specific, and educational. Focus on learning patterns and how t
     return await analyzeWithGemini(wrongAnswers);
   }
 }
-
+async function getFileByName(fileName) {
+  console.log(`Fetching file from Gemini: ${fileName}`);
+  const file = await genAI.getFile(fileName);
+  return file;
+}
 async function analyzeWithGemini(wrongAnswers) {
   const gemini = getNextGemini();
   console.log("🤖 Using Gemini for weak area analysis (fallback)...");
@@ -397,6 +401,7 @@ module.exports = {
   uploadAndProcessFile, 
   generateTopics, 
   generateQuiz,
-  analyzeWeakAreas 
+  analyzeWeakAreas, 
+  getFileByName
 };
 

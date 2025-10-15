@@ -17,6 +17,7 @@ const {
   uploadAndProcessFile,
   generateTopics,
   generateQuiz,
+  getFileByName, // <-- Import the new function
 } = require("./services/pdfService.js");
 
 const app = express();
@@ -138,6 +139,30 @@ app.post("/api/save-wrong-answer", async (req, res) => {
     res.status(500).json({
       success: false,
       error: "Failed to save wrong answer",
+      details: error.message,
+    });
+  }
+});
+
+app.post("/api/generate-quiz", async (req, res) => {
+  const { topic, questionCount, geminiFileName } = req.body;
+  if (!topic || !questionCount || !geminiFileName)
+    return res
+      .status(400)
+      .json({ success: false, error: "Missing required parameters." });
+
+  try {
+    // --- SIMPLIFIED LOGIC ---
+    // Fetch file from Gemini storage using our service
+    const file = await getFileByName(geminiFileName);
+
+    const quiz = await generateQuiz(topic, questionCount, file);
+    res.json({ success: true, quiz });
+  } catch (error) {
+    console.error("❌ Error in /api/generate-quiz:", error.message);
+    res.status(500).json({
+      success: false,
+      error: "Failed to generate quiz from Gemini AI.",
       details: error.message,
     });
   }
