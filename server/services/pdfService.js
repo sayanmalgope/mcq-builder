@@ -90,12 +90,9 @@ async function generateTopics(file) {
       `You are an expert educational content analyzer. Analyze this PDF document COMPREHENSIVELY and extract EVERY single distinct learning topic, concept, subject area, and theme.
 
 CRITICAL INSTRUCTIONS:
-- Extract All Main topics (or more if document is large)
-- Include BOTH major topics AND subtopics
-- Cover all chapters, sections, and important concepts
-- Don't limit yourself - be thorough and comprehensive
-- Include foundational concepts, advanced topics, and specialized areas
-- Look at headings, subheadings, key terms, and main discussion points
+- Extract All Main topics subjectwise/Chaperwise . 
+- Make sure only cover main topic .
+- Dont cover any sub topic. 
 
 For each topic provide:
 - A clear, specific title

@@ -161,19 +161,19 @@ const Home = ({ setPdfAnalysis, pdfAnalysis }) => {
                         <div className="step-icon">📄</div>
                         <span>Validate</span>
                       </div>
-                      <div className={`step ${uploadProgress > 30 ? 'active' : ''}`}>
+                      <div className={`step ${uploadProgress > 20 ? 'active' : ''}`}>
                         <div className="step-icon">📤</div>
                         <span>Upload</span>
                       </div>
-                      <div className={`step ${uploadProgress > 50 ? 'active' : ''}`}>
+                      <div className={`step ${uploadProgress > 30 ? 'active' : ''}`}>
                         <div className="step-icon">🔄</div>
                         <span>Process</span>
                       </div>
-                      <div className={`step ${uploadProgress > 70 ? 'active' : ''}`}>
+                      <div className={`step ${uploadProgress > 50 ? 'active' : ''}`}>
                         <div className="step-icon">🤖</div>
                         <span>AI Analysis</span>
                       </div>
-                      <div className={`step ${uploadProgress > 90 ? 'active' : ''}`}>
+                      <div className={`step ${uploadProgress > 70 ? 'active' : ''}`}>
                         <div className="step-icon">📋</div>
                         <span>Extract</span>
                       </div>
